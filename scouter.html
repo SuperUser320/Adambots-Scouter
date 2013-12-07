@@ -52,6 +52,9 @@
 		table * td span {
 			outline:none;
 			color:black;
+			position:relative;
+			width:100%;
+			height:100%;
 		}
 		table thead,tfoot {
 			font-weight:bold;
@@ -212,8 +215,8 @@
 			//Table updater
 			var e = datatable.tBodies[0].getElementsByTagName("span");
 			for (var i = 0; i < e.length; i++) {
-				var row = Math.floor(i / (columns.length-1) );
-				var col = i % (columns.length-1);
+				var row = Math.floor(i / (columns.length) );
+				var col = i % (columns.length);
 				updateEntry(e[i],data, row, col );
 			}
 		}
