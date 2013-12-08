@@ -8,15 +8,23 @@
                 font-family:"Arial";
                 margin:auto;
                 width:80%;
-                margin-top:32px;
-                background: #555;
+                background: rgb(255,216,2);
             }
             
             #content {
                 padding: 32px;
                 background: #ddd;
                 border: 5px solid #aaa;
-                box-shadow: 0 0 10px #555;
+                box-shadow: 0 0 15px #333;
+                -moz-border-radius: 15px;
+                border-radius: 15px;
+            }
+            
+            #title {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 20px;
             }
             
             #selectsheet {
@@ -69,7 +77,7 @@
                 height:20px;
             }
             table * td:hover {
-                box-shadow:inset 0px 0px 4px 0px rgba(0,0,0,.125);
+                box-shadow:inset 0px 0px 4px 0px rgba(0,0,0,.25);
             }
             table * td span {
                 outline:none;
@@ -115,7 +123,8 @@
             }
             #newcolumn:hover {
                 background:rgb(255, 216, 0);
-                color:white;
+                color: #eee;
+                text-shadow: 0 0 2px #555;
             }
             
             #newrow {
@@ -124,7 +133,8 @@
             }
             #newrow:hover {
                 background:rgb(255, 216, 0);
-                color:white;
+                color: #eee;
+                text-shadow: 0 0 2px #555;
             }
         </style>
 
@@ -246,7 +256,7 @@
         </script>
     </head>
     <body>
-        <img id="title" src="darkBG_medium_shadow.png" width="800px">
+        <img id="title" src="yellowBG_medium_shadow.png" width="800px">
         <div id="content">
             <input id="sheetname" value="Hub City Regional"><br>
             <br>
