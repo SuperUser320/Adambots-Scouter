@@ -12,13 +12,16 @@
             }
             
             #content {
-                margin: 32px;
+                width: 90%;
+                margin: auto;
                 margin-top: 0;
-                padding-bottom: 1px;
-                background: #333;
-                box-shadow: inset 0 0 5px #000;
-                -moz-border-radius: 15px;
-                border-radius: 15px;
+                margin-bottom: 30px;
+                padding: 40px;
+                padding-top: 0;
+                background: #444;
+                box-shadow: inset 0 0 10px #000;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
             }
             
             #title {
@@ -26,7 +29,7 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                z-index: -2;
+                z-index: -1;
             }
             
             #selectsheet {
@@ -35,14 +38,31 @@
                 outline:none;
                 font-family:"Arial";
                 font-size:16px;
-                margin:0px;
+                margin:0;
+            }
+            
+            #name_bg {
+                padding-left: 40px;
+                margin-left: -40px;
+                margin-right: -40px;
+                margin-bottom: 30px;
+                background: -webkit-linear-gradient(#444, #222);
+                background: -o-linear-gradient(#444, #222);
+                background: -moz-linear-gradient(#444, #222);
+                background: linear-gradient(#444, #222);
+                -moz-border-top-left-radius: 10px;
+                -moz-border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                box-shadow: 0 4px 10px -5px #000;
             }
             
             #sheetname {
-                height:30px;
-                width: auto;
-                padding-left:8px;
-                margin: 30px;
+                height: 30px;
+                width: 500px;
+                padding-left: 8px;
+                margin: 20px;
+                margin-left: 0;
                 color:#eee;
                 background: none;
                 border: none;
@@ -62,16 +82,16 @@
             #sheetname:hover {
                 box-shadow: inset 0 0 5px #555; 
                 background: #eee;
-                color: #000;
+                color: #333;
                 text-shadow: none;
             }
             
             #datatable {
-                width:inherit;
-                margin-left: 30px;
-                margin-right: 30px;
-                margin-bottom: 30px;
+                width:100%;
+                min-width: 120px;
                 margin-top: none;
+                margin: none;
+                box-shadow: 0 0 5px #000;
             }
             
             input {
@@ -83,12 +103,11 @@
             table {
                 width: auto;
                 border-spacing:1px;
-                box-shadow: 0 0 15px #000;
             }
             table * td {
                 text-align:center;
                 padding:0px;
-                line-height:20px;
+                line-height:30px;
                 height:30px;
                 
                 transition: 0.1s ease-in;
@@ -105,26 +124,36 @@
             }
             table * td span {
                 outline:none;
-
-                color:black;
-                display:block;
+                color: black;
+                display: block;
+                padding-left: 10px;
+                padding-right: 10px;
+                color: #eee;
+                text-shadow: 0 0 2px #111;
             }
             table thead,tfoot {
                 font-weight:bold;
-                background:#aaa;
+                background:#777;
             }
             table thead td {
                 color:red;
                 position:relative;
+                text-shadow: 0 0 2px #111;
+            }
+            
+            table thead td span {
+                padding-right: 25px;
+                padding-left: 25px;
             }
             table thead td a {
-                position:absolute;
+                position: absolute;
                 right:8px;
                 top:0px;
                 height:30px;
                 cursor:pointer;
                 line-height:32px;
             }
+            
             table tbody tr td {
                 background:#F0F0F0;
             }
@@ -154,6 +183,8 @@
                 text-align:center;
                 cursor:pointer;
                 color:black;
+                color: #eee;
+                text-shadow: 0 0 2px #111;
             }
             #newcolumn:hover {
                 background:rgb(255, 216, 0);
@@ -164,6 +195,8 @@
             #newrow {
                 text-align:center;
                 cursor:pointer;
+                color: #eee;
+                text-shadow: 0 0 2px #111;
             }
             #newrow:hover {
                 background:rgb(255, 216, 0);
@@ -175,16 +208,6 @@
         <script type="text/javascript">
             var columns = ["Team","Defense","Autonomous","Climb","Teleop"];
             var data = [[[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
                         [[""],[""],[""],[""],[""]],
                         [[""],[""],[""],[""],[""]],
                         [[""],[""],[""],[""],[""]],
@@ -314,9 +337,9 @@
     <body>
         <img id="title" src="yellowBG_medium_shadow.png" width="750px">
         <div id="content">
-            <input id="sheetname" value="Hub City Regional"><br>
-            <br>
-    
+            <div id="name_bg">
+                <input id="sheetname" value="Hub City Regional">
+            </div>
             <table id="datatable">
                 <thead>
                     <tr><td>Team</td></td><td id="newcolumn">+</td></tr>
