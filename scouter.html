@@ -1,241 +1,268 @@
 <!doctype html>
 <html>
-<head>
-	<title>Scouter</title>
-	<style>
-		body {
-			font-size:16px;
-			font-family:"Arial";
-			margin:auto;
-			width:800px;
-			border-left:1px solid #CCC;
-			border-right:1px solid #CCC;
-			padding:32px;
-			margin-top:32px;
-		}
-		
-		#selectsheet {
-			width:100%;
-			height:30px;
-			outline:none;
-			font-family:"Arial";
-			font-size:16px;
-			margin:0px;
-		}
-		
-		#sheetname {
-			height:30px;
-			width:789px;
-			padding-left:5px;
-			margin:1px
-		}
-		
-		input {
-			outline:none;
-			font-family:"Arial";
-			font-size:16px;
-		}
-				
-		table {
-			width:800px;
-			border-spacing:1px;
-		}
-		table * td {
-			text-align:center;
-			padding:5px;
-			line-height:20px;
-			height:20px;
-		}
-		table * td:hover {
-			box-shadow:inset 0px 0px 4px 0px rgba(0,0,0,.125);
-		}
-		table * td span {
-			outline:none;
-			color:black;
-			position:relative;
-			width:100%;
-			height:100%;
-		}
-		table thead,tfoot {
-			font-weight:bold;
-			background:#EEE;
-		}
-		table thead td {
-			color:red;
-		}
-		table thead td a {
-			cursor:pointer;
-		}
-		table tbody tr td {
-			background:#F0F0F0;
-		}
-		table tbody tr td a {
-			font-weight:bold;
-			cursor:pointer;
-			color:red;
-		}
-		
-		table tbody tr:nth-child(odd) td {
-			background:#F8F8F8;
-		}
-		table tbody tr:nth-child(odd) td:nth-child(1) {
-			background:#BBE0BB;
-		}
-		table tbody tr:nth-child(even) td:nth-child(1) {
-			background:#AAD0AA;
-		}
-		
-		#newcolumn {
-			width:20px;
-			text-align:center;
-			cursor:pointer;
-			color:black;
-		}
-		#newcolumn:hover {
-			background:black;
-			color:white;
-		}
-		
-		#newrow {
-			text-align:center;
-			cursor:pointer;
-		}
-		#newrow:hover {
-			background:black;
-			color:white;
-		}
-	</style>
-	<script type="text/javascript">
-		var columns = ["Team","Defense","Autonomous","Climb","Teleop"];
-		var data = []; //List of lists.
-		function repress(el) {
-			el.onkeyup = function() {
-				if (el.textContent != el.innerHTML) {
-					el.innerHTML = el.textContent;
-				}
-			}
-		}
-		
-		function updateEntry(el,table,a,b) {
-			el.onkeyup = function() {
-				if (b == null) {
-					table[a] = el.textContent;
-				} else {
-					table[a][b] = el.textContent;
-				}
-			}
-		}
-			
-		function deleteCol(el,at) {
-			el.onclick = function() {
-				columns.splice(at,1);
-				for (var i = 0; i < data.length; i++) {
-					data[i].splice(at,1);
-				}
-				rebuild();
-			}
-		}
-		
-		function deleteRow(el,at) {
-			el.onclick = function() {
-				data.splice(at,1);
-				rebuild();
-			}
-		}
+    <head>
+        <title>Scouter</title>
+        <style>
+            body {
+                font-size:16px;
+                font-family:"Arial";
+                margin:auto;
+                width:80%;
+                margin-top:32px;
+                background: #555;
+            }
+            
+            #content {
+                padding: 32px;
+                background: #ddd;
+                border: 5px solid #aaa;
+                box-shadow: 0 0 10px #555;
+            }
+            
+            #selectsheet {
+                width:100%;
+                height:30px;
+                outline:none;
+                font-family:"Arial";
+                font-size:16px;
+                margin:0px;
+            }
+            
+            #sheetname {
+                height:30px;
+                width: auto;
+                padding-left:8px;
+                margin:1px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                font-weight:bold;
+                transition: 0.2s ease-in;
+                transition: 0.2s ease-out;
+                -webkit-transition: 0.2s ease-in;
+                -webkit-transition: 0.2s ease-out;
+                -moz-transition: 0.2s ease-in;
+                -moz-transition: 0.2s ease-out;
+                -o-transition: 0.2s ease-in;
+                -o-transition: 0.2s ease-out;
+            }
+            
+            #sheetname:hover {
+                box-shadow: inset 0 0 5px #555; 
+                background: #eee;
+            }
+            
+            input {
+                outline:none;
+                font-family:"Arial";
+                font-size:16px;
+            }
+                    
+            table {
+                width:100%;
+                border-spacing:1px;
+            }
+            table * td {
+                text-align:center;
+                padding:5px;
+                line-height:20px;
+                height:20px;
+            }
+            table * td:hover {
+                box-shadow:inset 0px 0px 4px 0px rgba(0,0,0,.125);
+            }
+            table * td span {
+                outline:none;
+                color:black;
+                position:relative;
+                width:100%;
+                height:100%;
+            }
+            table thead,tfoot {
+                font-weight:bold;
+                background:#aaa;
+            }
+            table thead td {
+                color:red;
+            }
+            table thead td a {
+                cursor:pointer;
+            }
+            table tbody tr td {
+                background:#F0F0F0;
+            }
+            table tbody tr td a {
+                font-weight:bold;
+                cursor:pointer;
+                color:red;
+            }
+            
+            table tbody tr:nth-child(odd) td {
+                background:#F8F8F8;
+            }
+            table tbody tr:nth-child(odd) td:nth-child(1) {
+                background:#BBE0BB;
+            }
+            table tbody tr:nth-child(even) td:nth-child(1) {
+                background:#AAD0AA;
+            }
+            
+            #newcolumn {
+                width:60px;
+                text-align:center;
+                cursor:pointer;
+                color:black;
+            }
+            #newcolumn:hover {
+                background:black;
+                color:white;
+            }
+            
+            #newrow {
+                text-align:center;
+                cursor:pointer;
+            }
+            #newrow:hover {
+                background:black;
+                color:white;
+            }
+        </style>
 
-		
-		function rebuild(focus) {
-			var str = [];
-			//Head
-			str.push("<thead>");
-			str.push("<tr>");
-			for (var i = 0; i < columns.length; i++) {
-				str.push("<td><span>" + columns[i] + "</span>");
-				if (i !== 0)
-					str.push("<a>&times;</a>");
-				str.push("</td>");
-			}
-			str.push('<td id="newcolumn">+Col</td>');
-			str.push("</tr>");
-			str.push("</thead>");
-			
-			//Body
-			str.push("<tbody>");
-			for (var i = 0; i < data.length; i++) {
-				str.push("<tr>");
-				for (var j = 0; j < data[i].length; j++) {
-					str.push("<td><span>" + data[i][j] + "</span></td>");
-				}
-				str.push("<td><a>&times</a></td>");
-				str.push("</tr>");
-			}
-			str.push("</tbody>");
-			
-			//Foot
-			str.push("<tfoot>");
-			str.push('<tr><td id="newrow" colspan="' + (columns.length+1) + '">Add Team</td></tr>');
-			str.push("</tfoot>");
-			datatable.innerHTML = str.join("\n");
-			//Set up editing
-			var e = datatable.getElementsByTagName("span");
-			for (var i = 0; i < e.length; i++) {
-				e[i].contentEditable = "true";
-				repress(e[i]);
-			}
-			//New column
-			document.getElementById("newcolumn").onclick = function() {
-				columns.push("");
-				for (var i = 0; i < data.length; i++) {
-					data[i].push("");
-				}
-				rebuild("col");
-			}
-			//Column delete
-			var a = datatable.getElementsByTagName("a");
-			for (var i = 0; i < a.length; i++) {
-				if (a[i].parentNode.parentNode.parentNode.tagName == "THEAD") {
-					deleteCol(a[i],i+1);
-				} else {
-					deleteRow(a[i],i - (columns.length-1));
-				}
-			}
-			//New row
-			document.getElementById("newrow").onclick = function() {
-				var u = [];
-				while (u.length < columns.length)
-					u.push("");
-				data.push(u);
-				rebuild();
-			}
-			//Column updater
-			var e = datatable.tHead.getElementsByTagName("span");
-			for (var i = 0; i < e.length; i++) {
-				updateEntry(e[i],columns,i);
-			}
-			//Table updater
-			var e = datatable.tBodies[0].getElementsByTagName("span");
-			for (var i = 0; i < e.length; i++) {
-				var row = Math.floor(i / (columns.length) );
-				var col = i % (columns.length);
-				updateEntry(e[i],data, row, col );
-			}
-		}
-	</script>
-</head>
-<body>
-	<h1>Scouter</h1>
-	<input id="sheetname" value="Hub City Regional"><br>
-	<br>
-	<table id="datatable">
-		<thead>
-			<tr><td>Team</td></td><td id="newcolumn">+</td></tr>
-		</thead>
-	<tbody>
-	</tbody>
-	<tfoot>
-		<tr><td id="newrow" colspan="2">Add Team</td></tr>
-	</tfoot>
-	</table>
-<script>
-		rebuild();
-</script>
+        <script type="text/javascript">
+            var columns = ["Team","Defense","Autonomous","Climb","Teleop"];
+            var data = []; //List of lists.
+            function repress(el) {
+                el.onkeyup = function() {
+                    if (el.textContent != el.innerHTML) {
+                        el.innerHTML = el.textContent;
+                    }
+                }
+            }
+            
+            function updateEntry(el,table,a,b) {
+                el.onkeyup = function() {
+                    if (b == null) {
+                        table[a] = el.textContent;
+                    } else {
+                        table[a][b] = el.textContent;
+                    }
+                }
+            }
+                
+            function deleteCol(el,at) {
+                el.onclick = function() {
+                    columns.splice(at,1);
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].splice(at,1);
+                    }
+                    rebuild();
+                }
+            }
+            
+            function deleteRow(el,at) {
+                el.onclick = function() {
+                    data.splice(at,1);
+                    rebuild();
+                }
+            }
+    
+            
+            function rebuild(focus) {
+                var str = [];
+                //Head
+                str.push("<thead>");
+                str.push("<tr>");
+                for (var i = 0; i < columns.length; i++) {
+                    str.push("<td><span>" + columns[i] + "</span>");
+                    if (i !== 0)
+                        str.push("<a>&times;</a>");
+                    str.push("</td>");
+                }
+                str.push('<td id="newcolumn">+Col</td>');
+                str.push("</tr>");
+                str.push("</thead>");
+                
+                //Body
+                str.push("<tbody>");
+                for (var i = 0; i < data.length; i++) {
+                    str.push("<tr>");
+                    for (var j = 0; j < data[i].length; j++) {
+                        str.push("<td><span>" + data[i][j] + "</span></td>");
+                    }
+                    str.push("<td><a>&times</a></td>");
+                    str.push("</tr>");
+                }
+                str.push("</tbody>");
+                
+                //Foot
+                str.push("<tfoot>");
+                str.push('<tr><td id="newrow" colspan="' + (columns.length+1) + '">Add Team</td></tr>');
+                str.push("</tfoot>");
+                datatable.innerHTML = str.join("\n");
+                //Set up editing
+                var e = datatable.getElementsByTagName("span");
+                for (var i = 0; i < e.length; i++) {
+                    e[i].contentEditable = "true";
+                    repress(e[i]);
+                }
+                //New column
+                document.getElementById("newcolumn").onclick = function() {
+                    columns.push("");
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].push("");
+                    }
+                    rebuild("col");
+                }
+                //Column delete
+                var a = datatable.getElementsByTagName("a");
+                for (var i = 0; i < a.length; i++) {
+                    if (a[i].parentNode.parentNode.parentNode.tagName == "THEAD") {
+                        deleteCol(a[i],i+1);
+                    } else {
+                        deleteRow(a[i],i - (columns.length-1));
+                    }
+                }
+                //New row
+                document.getElementById("newrow").onclick = function() {
+                    var u = [];
+                    while (u.length < columns.length)
+                        u.push("");
+                    data.push(u);
+                    rebuild();
+                }
+                //Column updater
+                var e = datatable.tHead.getElementsByTagName("span");
+                for (var i = 0; i < e.length; i++) {
+                    updateEntry(e[i],columns,i);
+                }
+                //Table updater
+                var e = datatable.tBodies[0].getElementsByTagName("span");
+                for (var i = 0; i < e.length; i++) {
+                    var row = Math.floor(i / (columns.length) );
+				    var col = i % (columns.length);
+                    updateEntry(e[i],data, row, col );
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <img id="title" src="darkBG_medium_shadow.png" width="800px">
+        <div id="content">
+            <input id="sheetname" value="Hub City Regional"><br>
+            <br>
+    
+            <table id="datatable">
+                <thead>
+                    <tr><td>Team</td></td><td id="newcolumn">+</td></tr>
+                </thead>
+                <tfoot>
+                    <tr><td id="newrow" colspan="2">Add Team</td></tr>
+                </tfoot>
+            </table>
+    
+            <script>
+                    rebuild();
+            </script>
+        </div>
+    </body>
+</html>
