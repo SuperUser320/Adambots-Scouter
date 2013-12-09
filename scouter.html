@@ -197,11 +197,24 @@
                 color: #eee;
                 background: red;
             }
+			
+			/*
+			The delete box in the last column. The A needs to be block so that it fills the entire cell;
+			this means you can click on the hover-area instead of just on the X.
+			*/
+			table tbody tr td a {
+				display:block;
+			}
             
             table tbody tr td span:nth-child(1) {
                 color: #eee;
                 text-shadow: 0 0 1px #000;
             }
+			
+			table tbody tr td:nth-child(n+2) span {
+				color:#000;
+				text-shadow:none;
+			}
             
             table tbody tr:nth-child(odd) td {
                 background:#F8F8F8;
@@ -327,7 +340,7 @@
                     for (var j = 0; j < data[i].length; j++) {
                         str.push("<td><span>" + data[i][j] + "</span></td>");
                     }
-                    str.push("<td>&times</td>");
+                    str.push("<td><a>&times</a></td>");
                     str.push("</tr>");
                 }
                 str.push("</tbody>");
@@ -352,7 +365,7 @@
                     rebuild("col");
                 }
                 //Column delete
-                var a = datatable.getElementsByTagName("table tbody tr td span:last-child");
+                var a = datatable.getElementsByTagName("a");
                 for (var i = 0; i < a.length; i++) {
                     if (a[i].parentNode.parentNode.parentNode.tagName == "THEAD") {
                         deleteCol(a[i],i+1);
