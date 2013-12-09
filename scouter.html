@@ -128,13 +128,22 @@
                 display: block;
                 padding-left: 10px;
                 padding-right: 10px;
-                color: #eee;
-                text-shadow: 0 0 2px #111;
+                color: #222;
             }
             table thead,tfoot {
                 font-weight:bold;
-                background:#777;
+                color: #eee;
+                background: -webkit-linear-gradient(#555, #333);
+                background: -o-linear-gradient(#555, #333);
+                background: -moz-linear-gradient(#555, #333);
+                background: linear-gradient(#555, #333);
             }
+            
+            table thead span {
+                color: #eee;
+                text-shadow: 0 0 2px #111;
+            }
+            
             table thead td {
                 color:red;
                 position:relative;
@@ -157,25 +166,35 @@
             table tbody tr td {
                 background:#F0F0F0;
             }
-            table tbody tr td a {
+            
+            table tbody tr td:last-child {
                 font-weight:bold;
                 cursor:pointer;
                 color:red;
             }
             
-            table tbody tr td:hover a {
-                color: white;
-                background-color: red;
+            table tbody tr td:last-child:hover {
+                font-weight:bold;
+                cursor:pointer;
+                color: #eee;
+                background: red;
+            }
+            
+            table tbody tr td span:nth-child(1) {
+                color: #eee;
+                text-shadow: 0 0 1px #000;
             }
             
             table tbody tr:nth-child(odd) td {
                 background:#F8F8F8;
             }
             table tbody tr:nth-child(odd) td:nth-child(1) {
-                background:#BBE0BB;
+                background:#777;
+                /*background: #aaa;*/
             }
             table tbody tr:nth-child(even) td:nth-child(1) {
-                background:#AAD0AA;
+                background:#666;
+                /*background: #999;*/
             }
             
             #newcolumn {
@@ -188,8 +207,8 @@
             }
             #newcolumn:hover {
                 background:rgb(255, 216, 0);
-                color: #eee;
-                text-shadow: 0 0 2px #555;
+                color: #222;
+                text-shadow: 0 0 1px #555;
             }
             
             #newrow {
@@ -200,18 +219,18 @@
             }
             #newrow:hover {
                 background:rgb(255, 216, 0);
-                color: #eee;
-                text-shadow: 0 0 2px #555;
+                color: #222;
+                text-shadow: 0 0 1px #555;
             }
         </style>
 
         <script type="text/javascript">
             var columns = ["Team","Defense","Autonomous","Climb","Teleop"];
-            var data = [[[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
-                        [[""],[""],[""],[""],[""]],
+            var data = [[["33"],[""],[""],[""],[""]],
+                        [["67"],[""],[""],[""],[""]],
+                        [["245"],[""],[""],[""],[""]],
+                        [["469"],[""],[""],[""],[""]],
+                        [["494"],[""],[""],[""],[""]],
                         [[""],[""],[""],[""],[""]],
                         [[""],[""],[""],[""],[""]],
                         [[""],[""],[""],[""],[""]],
@@ -278,7 +297,7 @@
                     for (var j = 0; j < data[i].length; j++) {
                         str.push("<td><span>" + data[i][j] + "</span></td>");
                     }
-                    str.push("<td><a>&times</a></td>");
+                    str.push("<td>&times</td>");
                     str.push("</tr>");
                 }
                 str.push("</tbody>");
@@ -303,7 +322,7 @@
                     rebuild("col");
                 }
                 //Column delete
-                var a = datatable.getElementsByTagName("a");
+                var a = datatable.getElementsByTagName("table tbody tr td span:last-child");
                 for (var i = 0; i < a.length; i++) {
                     if (a[i].parentNode.parentNode.parentNode.tagName == "THEAD") {
                         deleteCol(a[i],i+1);
