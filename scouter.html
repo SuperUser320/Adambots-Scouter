@@ -284,21 +284,21 @@
                         [[""],[""],[""],[""],[""]]]; //List of lists.
             
             function repress(el) {
-                el.onkeyup = function() {
+                el.addEventListener("keyup",function() {
                     if (el.textContent != el.innerHTML) {
                         el.innerHTML = el.textContent;
                     }
-                }
+                });
             }
             
             function updateEntry(el,table,a,b) {
-                el.onkeyup = function() {
+                el.addEventListener("keyup",function() {
                     if (b == null) {
                         table[a] = el.textContent;
                     } else {
                         table[a][b] = el.textContent;
                     }
-                }
+                });
             }
                 
             function deleteCol(el,at) {
