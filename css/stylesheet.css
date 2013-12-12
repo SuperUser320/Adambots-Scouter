@@ -1,253 +1,241 @@
  body {
-                font-size:16px;
-                font-family:"Arial";
-                margin:auto;
-                width:90%;
-                background: rgb(255,216,2);
-            }
-            
-            #content {
-                min-width: 800px;
-                width: 90%;
-                margin: auto;
-                margin-top: 0;
-                margin-bottom: 30px;
-                padding: 40px;
-                padding-top: 0;
-                background-color: #2e2e2e;
-                box-shadow: inset 0 0 10px #000;
-                -moz-border-radius: 10px;
-                border-radius: 10px;
-                background-image:url(noise.png);
-                background-size: 500px;
-            }
-            
-            #title {
-                width: 850px;
-                position: relative;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                z-index: -1;
-            }
-            
-            #selectsheet {
-                width:100%;
-                height:30px;
-                outline:none;
-                font-family:"Arial";
-                font-size:16px;
-                margin:0;
-            }
-            
-            #name_bg {
-                padding-left: 40px;
-                margin-left: -40px;
-                margin-right: -40px;
-                margin-bottom: 30px;
-                background: -webkit-linear-gradient(#444, #222);
-                background: -o-linear-gradient(#444, #222);
-                background: -moz-linear-gradient(#444, #222);
-                background: linear-gradient(#444, #222);
-                -moz-border-top-left-radius: 10px;
-                -moz-border-top-right-radius: 10px;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
-                box-shadow: 0 4px 10px -5px #000;
-            }
-            
-            #sheetname {
-                height: 30px;
-                width: 500px;
-                padding-left: 8px;
-                margin: 20px;
-                margin-left: 0;
-                color:#eee;
-                background: none;
-                border: none;
-                font-size: 24px;
-                font-weight:bold;
-                text-shadow: 0 0 5px #000;
-                transition: 0.2s ease-in;
-                transition: 0.2s ease-out;
-                -webkit-transition: 0.2s ease-in;
-                -webkit-transition: 0.2s ease-out;
-                -moz-transition: 0.2s ease-in;
-                -moz-transition: 0.2s ease-out;
-                -o-transition: 0.2s ease-in;
-                -o-transition: 0.2s ease-out;
-            }
-            
-            #sheetname:hover {
-                box-shadow: inset 0 0 5px #555; 
-                background: #eee;
-                color: #333;
-                text-shadow: none;
-            }
-            
-            #datatable {
-                width:100%;
-                min-width: 120px;
-                margin-top: none;
-                margin: none;
-                box-shadow: 0 0 5px #000;
-            }
-            
-            input {
-                outline:none;
-                font-family:"Arial";
-                font-size:16px;
-            }
-                    
-            table {
-                z-index:5;
-                -moz-border-radius: 10px;
-                border-radius: 10px;
-                width: auto;
-                border-spacing:1px;
-            }
-            
-            table * td {
-                text-align:center;
-                padding:0px;
-                line-height:30px;
-                height:30px;
-                
-                transition: 0.1s ease-in;
-                transition: 0.1s ease-out;
-                -webkit-transition: 0.1s ease-in;
-                -webkit-transition: 0.1s ease-out;
-                -moz-transition: 0.1s ease-in;
-                -moz-transition: 0.1s ease-out;
-                -o-transition: 0.1s ease-in;
-                -o-transition: 0.1s ease-out;
-            }
-            table * td:hover {
-                box-shadow:inset 0px 0px 4px 0px rgba(0,0,0,.25);
-            }
-            table * td span {
-                outline:none;
-                color: black;
-                display: block;
-                padding-left: 10px;
-                padding-right: 10px;
-                color: #222;
-            }
-            table thead,tfoot {
-                font-weight:bold;
-                color: #eee;
-                background: -webkit-linear-gradient(#555, #333);
-                background: -o-linear-gradient(#555, #333);
-                background: -moz-linear-gradient(#555, #333);
-                background: linear-gradient(#555, #333);
-            }
-            
-            table thead span {
-                color: #eee;
-                text-shadow: 0 0 2px #111;
-            }
-            
-            table thead td {
-                color:red;
-                position:relative;
-                text-shadow: 0 0 2px #111;
-            }
-            
-            table thead td span {
-                padding-right: 25px;
-                padding-left: 25px;
-            }
-            
-            table thead td:first-child {
-                -moz-border-top-left-radius: 10px;
-                border-top-left-radius: 10px;
-            }
-            
-            table thead td:last-child {
-                -moz-border-top-right-radius: 10px;
-                border-top-right-radius: 10px;
-            }
-            
-            table thead td a {
-                position: absolute;
-                right:8px;
-                top:0px;
-                height:30px;
-                cursor:pointer;
-                line-height:32px;
-            }
-            
-            table tbody tr td {
-                background:#F0F0F0;
-            }
-            
-            table tbody tr td:last-child {
-                font-weight:bold;
-                cursor:pointer;
-                color:red;
-            }
-            
-            table tbody tr td:last-child:hover {
-                font-weight:bold;
-                cursor:pointer;
-                color: #eee;
-                background: red;
-            }
-			
-			/*
+     font-size: 16px;
+     font-family: "Arial";
+     margin: auto;
+     width: 90%;
+     background: rgb(255, 216, 2);
+ }
+ #content {
+     min-width: 800px;
+     width: 90%;
+     margin: auto;
+     margin-top: 0;
+     margin-bottom: 30px;
+     padding: 40px;
+     padding-top: 0;
+     background-color: #2e2e2e;
+     box-shadow: inset 0 0 10px #000;
+     -moz-border-radius: 10px;
+     border-radius: 10px;
+     background-image: url(noise.png);
+     background-size: 500px;
+ }
+ #title {
+     width: 850px;
+     position: relative;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     z-index: -1;
+ }
+ #selectsheet {
+     width: 100%;
+     height: 30px;
+     outline: none;
+     font-family: "Arial";
+     font-size: 16px;
+     margin: 0;
+ }
+ #name_bg {
+     padding-left: 40px;
+     margin-left: -40px;
+     margin-right: -40px;
+     margin-bottom: 30px;
+     background: -webkit-linear-gradient(#444, #222);
+     background: -o-linear-gradient(#444, #222);
+     background: -moz-linear-gradient(#444, #222);
+     background: linear-gradient(#444, #222);
+     -moz-border-top-left-radius: 10px;
+     -moz-border-top-right-radius: 10px;
+     border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
+     box-shadow: 0 4px 10px -5px #000;
+ }
+ #sheetname {
+     height: 30px;
+     width: 500px;
+     padding-left: 8px;
+     margin: 20px;
+     margin-left: 0;
+     color: #eee;
+     background: none;
+     border: none;
+     font-size: 24px;
+     font-weight: bold;
+     text-shadow: 0 0 5px #000;
+     transition: 0.2s ease-in;
+     transition: 0.2s ease-out;
+     -webkit-transition: 0.2s ease-in;
+     -webkit-transition: 0.2s ease-out;
+     -moz-transition: 0.2s ease-in;
+     -moz-transition: 0.2s ease-out;
+     -o-transition: 0.2s ease-in;
+     -o-transition: 0.2s ease-out;
+ }
+ #sheetname:hover {
+     box-shadow: inset 0 0 5px #555;
+     background: #eee;
+     color: #333;
+     text-shadow: none;
+ }
+ #datatable {
+     width: 100%;
+     min-width: 120px;
+     margin-top: none;
+     margin: none;
+     box-shadow: 0 0 5px #000;
+ }
+ input {
+     outline: none;
+     font-family: "Arial";
+     font-size: 16px;
+ }
+ table {
+     z-index: 5;
+     -moz-border-radius: 10px;
+     border-radius: 10px;
+     width: auto;
+     border-spacing: 1px;
+ }
+ table * td {
+     text-align: center;
+     padding: 0px;
+     line-height: 30px;
+     height: 30px;
+     transition: 0.1s ease-in;
+     transition: 0.1s ease-out;
+     -webkit-transition: 0.1s ease-in;
+     -webkit-transition: 0.1s ease-out;
+     -moz-transition: 0.1s ease-in;
+     -moz-transition: 0.1s ease-out;
+     -o-transition: 0.1s ease-in;
+     -o-transition: 0.1s ease-out;
+ }
+ table * td:hover {
+     box-shadow: inset 0px 0px 4px 0px rgba(0, 0, 0, .25);
+ }
+ table * td span {
+     outline: none;
+     color: black;
+     display: block;
+     padding-left: 10px;
+     padding-right: 10px;
+     color: #222;
+ }
+ table thead,
+ tfoot {
+     font-weight: bold;
+     color: #eee;
+     background: -webkit-linear-gradient(#555, #333);
+     background: -o-linear-gradient(#555, #333);
+     background: -moz-linear-gradient(#555, #333);
+     background: linear-gradient(#555, #333);
+ }
+ table thead span {
+     color: #eee;
+     text-shadow: 0 0 2px #111;
+ }
+ table thead td {
+     color: red;
+     position: relative;
+     text-shadow: 0 0 2px #111;
+ }
+ table thead td {
+     padding-right: 25px;
+     padding-left: 25px;
+ }
+ table thead td a {
+     transition: 0.2s ease-in;
+     transition: 0.2s ease-out;
+     -webkit-transition: 0.2s ease-in;
+     -webkit-transition: 0.2s ease-out;
+     -moz-transition: 0.2s ease-in;
+     -moz-transition: 0.2s ease-out;
+     -o-transition: 0.2s ease-in;
+     -o-transition: 0.2s ease-out;
+ }
+ table thead td a:hover {
+     color: #eee;
+ }
+ table thead td:first-child {
+     -moz-border-top-left-radius: 10px;
+     border-top-left-radius: 10px;
+ }
+ table thead td:last-child {
+     -moz-border-top-right-radius: 10px;
+     border-top-right-radius: 10px;
+ }
+ table thead td a {
+     position: absolute;
+     right: 8px;
+     top: 0px;
+     height: 30px;
+     cursor: pointer;
+     line-height: 32px;
+ }
+ table tbody tr td {
+     background: #F0F0F0;
+ }
+ table tbody tr td:last-child {
+     font-weight: bold;
+     cursor: pointer;
+     color: red;
+ }
+ table tbody tr td:last-child:hover {
+     font-weight: bold;
+     cursor: pointer;
+     color: #eee;
+     background: red;
+ }
+ /*
 			The delete box in the last column. The A needs to be block so that it fills the entire cell;
 			this means you can click on the hover-area instead of just on the X.
 			*/
-			table tbody tr td a {
-				display:block;
-			}
-            
-            table tbody tr td span:nth-child(1) {
-                color: #eee;
-                text-shadow: 0 0 1px #000;
-            }
-			
-			table tbody tr td:nth-child(n+2) span {
-				color:#000;
-				text-shadow:none;
-			}
-            
-            table tbody tr:nth-child(odd) td {
-                background:#F8F8F8;
-            }
-            table tbody tr:nth-child(odd) td:nth-child(1) {
-                background-color:#777;
-            }
-            table tbody tr:nth-child(even) td:nth-child(1) {
-                background-color:#666;
-            }
-            
-            #newcolumn {
-                width:20px;
-                text-align:center;
-                cursor:pointer;
-                color:black;
-                color: #eee;
-                text-shadow: 0 0 2px #111;
-            }
-            #newcolumn:hover {
-                background:rgb(255, 216, 0);
-                color: #222;
-                text-shadow: 0 0 1px #555;
-            }
-            
-            #newrow {
-                text-align:center;
-                cursor:pointer;
-                color: #eee;
-                text-shadow: 0 0 2px #111;
-                -moz-border-bottom-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                -moz-border-bottom-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-            }
-            #newrow:hover {
-                background:rgb(255, 216, 0);
-                color: #222;
-                text-shadow: 0 0 1px #555;
-            }
+ table tbody tr td a {
+     display: block;
+ }
+ table tbody tr td span:nth-child(1) {
+     color: #eee;
+     text-shadow: 0 0 1px #000;
+ }
+ table tbody tr td:nth-child(n+2) span {
+     color: #000;
+     text-shadow: none;
+ }
+ table tbody tr:nth-child(odd) td {
+     background: #F8F8F8;
+ }
+ table tbody tr:nth-child(odd) td:nth-child(1) {
+     background-color: #777;
+ }
+ table tbody tr:nth-child(even) td:nth-child(1) {
+     background-color: #666;
+ }
+ #newcolumn {
+     width: 20px;
+     text-align: center;
+     cursor: pointer;
+     color: black;
+     color: #eee;
+     text-shadow: 0 0 2px #111;
+ }
+ #newcolumn:hover {
+     background: rgb(255, 216, 0);
+     color: #222;
+     text-shadow: 0 0 1px #555;
+ }
+ #newrow {
+     text-align: center;
+     cursor: pointer;
+     color: #eee;
+     text-shadow: 0 0 2px #111;
+     -moz-border-bottom-right-radius: 10px;
+     border-bottom-right-radius: 10px;
+     -moz-border-bottom-left-radius: 10px;
+     border-bottom-left-radius: 10px;
+ }
+ #newrow:hover {
+     background: rgb(255, 216, 0);
+     color: #222;
+     text-shadow: 0 0 1px #555;
+ }
